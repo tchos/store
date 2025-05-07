@@ -1,0 +1,65 @@
+@startuml
+
+package "entities" {
+
+  class Employe {
+    - id: String
+    - nom: String
+    - email: String
+    - dateEmbauche: LocalDate
+    - salaire: Integer
+    --
+    +poste: Poste
+    +departement: Departement
+  }
+
+  class Poste {
+    - id: String
+    - libellePoste: typePoste
+    - salaireMin: Integer
+    - salaireMax: Integer
+    --
+    +employes: List<Employee>
+  }
+
+  enum typePoste {
+    Cadre
+    Chef Bureau
+    Chef Service
+    Directeur
+    Directeur Général
+  }
+
+  class Departement {
+    - id: String
+    - libelleDepartement: String
+    --
+    +employes: List<Employee>
+  }
+
+/'
+  class Utilisateur {
+    - id: String
+    - nomUtilisateur: String
+    - motDePasse: String
+    --
+    +role: Role
+  }
+
+  class Role {
+    - id: String
+    - nomRole: String
+    --
+    +utilisateurs: List<Utilisateur>
+  }
+  '/
+
+  ' Relations
+
+  Poste "1" --> "*" Employe: Emploie
+  Poste -- typePoste: Utilise
+  Departement "1" --> "*" Employe : Affecter
+  ' Utilisateur --> Role : role
+}
+
+@enduml
