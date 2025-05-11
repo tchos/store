@@ -1,6 +1,6 @@
-package repositories;
+package repository;
 
-import entities.Departement;
+import model.Departement;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

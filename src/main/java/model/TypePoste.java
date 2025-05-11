@@ -1,4 +1,4 @@
-package entities;
+package model;
 
 public enum TypePoste {
     CADRE,

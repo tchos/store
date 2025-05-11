@@ -1,7 +1,7 @@
-package repositories;
+package repository;
 
-import entities.Poste;
-import entities.TypePoste;
+import model.Poste;
+import model.TypePoste;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
