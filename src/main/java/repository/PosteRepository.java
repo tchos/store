@@ -1,5 +1,6 @@
 package repository;
 
+import model.Employe;
 import model.Poste;
 import model.TypePoste;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -12,7 +13,8 @@ import java.util.UUID;
 
 @Repository
 public interface PosteRepository extends JpaRepository<Poste, UUID> {
-    List<Poste> findAllByType(TypePoste type);
+    List<Employe> findAllEmployeesByLibellePoste(TypePoste libellePoste);
+    boolean existsDistinctByLibellePoste(TypePoste libellePoste);
 }
 
 

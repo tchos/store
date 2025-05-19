@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{base.html}"
->
-<head th:replace="~{base::page_head}">
-    <title layout:title="CREER POSTE"></title>
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:fragment="page_head">
+    <meta charset="UTF-8">
+    <title layout:title-pattern="$LAYOUT_TITLE - STORE">STORE</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
 </head>
 <body>
     <!-- Inclusion du header -->
     <div layout:fragment="header" th:replace="layouts/_header :: header"></div>
 
-    <div layout:fragment="content" class="container py-3">
-        PAGE ACCUEIL
+    <div class="container mt-5" layout:fragment="content">
+        <!-- Content de chaque page -->
     </div>
 
     <!-- Inclusion du footer -->

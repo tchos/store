@@ -21,16 +21,15 @@ public class Poste {
     private UUID id;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    @NotBlank(message = "Le libellé du poste est obligatoire")
+    @Column(nullable = false, unique = true)
     private TypePoste libellePoste;
 
     @Column(nullable = false)
-    @Min(value = 42000, message = "Le salaire minimum doit être au dessus du SMIG")
+    @Min(value = 42000, message = "{Min.poste.salaireMin}")
     private Integer salaireMin;
 
     @Column(nullable = false)
-    @Max(value = 1000000, message = "Le salaire max est de 1 million")
+    @Max(value = 1000000, message = "{Max.poste.salaireMax}")
     private Integer salaireMax;
 
     @OneToMany(mappedBy = "poste", cascade = CascadeType.ALL)

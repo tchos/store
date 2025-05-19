@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/base}"
+>
+<head th:replace="~{base::page_head}">
+    <title layout:title="LISTE DES POSTES"></title>
+</head>
+<body>
+<!-- Inclusion du header -->
+<div layout:fragment="header" th:replace="layouts/_header :: header"></div>
+
+<!-- Content -->
+<div layout:fragment="content">
+    <div class="justify-content-center mt-5">
+        <div class="container">
+            DETAIL SUR LE POSTE
+        </div>
+    </div>
+</div>
+
+<!-- Inclusion du footer -->
+<div layout:fragment="footer" th:replace="layouts/_footer :: footer"></div>
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

@@ -8,7 +8,10 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Table(name = "departements")
+@Table(
+        name = "departements",
+        uniqueConstraints = {@UniqueConstraint(columnNames = "libelleDepartement")}
+)
 @Data
 @Builder
 @NoArgsConstructor
