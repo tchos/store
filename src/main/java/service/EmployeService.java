@@ -45,16 +45,16 @@ public class EmployeService {
     }
 
     // Recupérer la liste des employés par Poste
-    public List<EmployeDTO> getAllEmployeesByPoste(Poste poste){
-        return employeRepository.findByPoste(poste)
+    public List<EmployeDTO> getAllEmployeesByPoste(UUID id){
+        return employeRepository.findEmployeByPoste_Id(id)
                 .stream()
                 .map(this::mapToDTO)
                 .collect(Collectors.toList());
     }
 
     // Recupérer la liste des employés par Departement
-    public List<EmployeDTO> getAllEmployeesByDepartement(Departement departement){
-        return employeRepository.findByDepartement(departement)
+    public List<EmployeDTO> getAllEmployeesByDepartement(UUID id){
+        return employeRepository.findEmployeByDepartement_Id(id)
                 .stream()
                 .map(this::mapToDTO)
                 .collect(Collectors.toList());
@@ -111,5 +111,4 @@ public class EmployeService {
         return employeDTO;
     }
      **/
-
 }

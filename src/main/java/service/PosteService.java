@@ -1,9 +1,11 @@
 package service;
 
+import dto.EmployeDTO;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import model.Poste;
+import model.TypePoste;
 import org.springframework.stereotype.Service;
 import repository.PosteRepository;
 

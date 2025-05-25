@@ -13,7 +13,6 @@ import java.util.UUID;
 
 @Repository
 public interface PosteRepository extends JpaRepository<Poste, UUID> {
-    List<Employe> findAllEmployeesByLibellePoste(TypePoste libellePoste);
     boolean existsDistinctByLibellePoste(TypePoste libellePoste);
 }
 

@@ -15,6 +15,6 @@ UUID = type de la clef primaire de l'entité Employe */
 
 @Repository
 public interface EmployeRepository extends JpaRepository<Employe, UUID> {
-    List<Employe> findByPoste(Poste poste);
-    List<Employe> findByDepartement(Departement departement);
+    List<Employe> findEmployeByPoste_Id(UUID id);
+    List<Employe> findEmployeByDepartement_Id(UUID id);
 }

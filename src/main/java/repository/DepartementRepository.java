@@ -10,4 +10,5 @@ import java.util.UUID;
 
 @Repository
 public interface DepartementRepository extends JpaRepository<Departement, UUID> {
+    boolean existsDistinctByLibelleDepartement(String libelleDepartement);
 }
