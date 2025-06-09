@@ -1,4 +1,4 @@
-package model;
+package tchos.store.store.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -23,8 +23,8 @@ public class Departement {
     @GeneratedValue
     private UUID id;
 
-    @Column(nullable = false)
-    @NotBlank(message = "Le libellé du département est obligatoire")
+    @Column(nullable = false, unique = true)
+    @NotBlank(message = "{NotBlank.departement.libelleDepartement}")
     private String libelleDepartement;
 
     @OneToMany(mappedBy = "departement", cascade = CascadeType.ALL)

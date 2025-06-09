@@ -1,4 +1,4 @@
-package model;
+package tchos.store.store.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;

@@ -1,4 +1,4 @@
-package model;
+package tchos.store.store.model;
 
 public enum TypePoste {
     CADRE,

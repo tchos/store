@@ -1,9 +1,6 @@
-package repository;
+package tchos.store.store.repository;
 
-import model.Departement;
-import model.Employe;
-import model.Poste;
-import model.TypePoste;
+import tchos.store.store.model.Employe;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

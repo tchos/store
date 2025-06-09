@@ -1,10 +1,10 @@
-package service;
+package tchos.store.store.service;
 
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
-import model.Departement;
+import tchos.store.store.model.Departement;
 import org.springframework.stereotype.Service;
-import repository.DepartementRepository;
+import tchos.store.store.repository.DepartementRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -18,11 +18,16 @@ public class DepartementService {
 
     // Ajouter un nouveau département en BD
     public Departement addDepartement(Departement departement) {
+        // On verifie pour voir le department n'existe pas deja
+        if (departementRepository.existsDistinctByLibelleDepartement(departement.getLibelleDepartement()))
+        {
+            throw new IllegalArgumentException("Ce département existe déjà !");
+        }
         return departementRepository.save(departement);
     }
 
     // Recupérer la liste de tous les postes qui existent dans la BD
-    public List<Departement> allDepartements() {
+    public List<Departement>getAllDepartements() {
         return departementRepository.findAll();
     }
 
@@ -31,7 +36,7 @@ public class DepartementService {
         return departementRepository.findById(id);
     }
 
-    // Modifier les informations sur un poste (existingDepartement) dejà existant en BD
+    // Modifier les informations sur un departement (existingDepartement) dejà existant en BD
     public Departement updateDepartement(UUID id, Departement updatedDepartement) {
         return departementRepository.findById(id).map(
                 existingDepartement->{

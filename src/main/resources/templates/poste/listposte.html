@@ -3,10 +3,10 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{base}"
 >
-<head>
-    <!-- Appel correct du fragment avec paramètre -->
-    <th:block th:replace="~{base :: page_head('LISTE DES POSTES')}"></th:block>
-</head>
+
+<!-- Appel correct du fragment avec paramètre -->
+<head th:replace="~{base::page_head(titrePage='LISTE DES POSTES')}"></head>
+
 <body>
 <!-- Inclusion du header -->
 <div layout:fragment="header" th:replace="~{layouts/_header :: header}"></div>
@@ -53,10 +53,10 @@
                                         <i class="fa-solid fa-pen-nib"></i>
                                     </a>
                                     <a class="btn btn-danger btn-sm" th:href="@{/poste/delete/{id}(id=${p.id})}" data-bs-toggle="modal"
-                                       data-bs-target="#modal1">
+                                       th:data-bs-target="'#modal' + ${p.id}">
                                         <i class="fa-solid fa-trash"></i>
                                     </a>
-                                    <div class="modal fade text-start" id="modal1" data-bs-backdrop="static">
+                                    <div class="modal fade text-start" th:id="'modal' + ${p.id}" data-bs-backdrop="static">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">

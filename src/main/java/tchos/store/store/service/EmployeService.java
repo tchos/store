@@ -1,15 +1,12 @@
-package service;
+package tchos.store.store.service;
 
-import dto.EmployeDTO;
+import tchos.store.store.dto.EmployeDTO;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
-import model.Departement;
-import model.Employe;
-import model.Poste;
-import model.TypePoste;
+import tchos.store.store.model.Employe;
 import org.springframework.stereotype.Service;
-import repository.EmployeRepository;
-import repository.PosteRepository;
+import tchos.store.store.repository.EmployeRepository;
+import tchos.store.store.repository.PosteRepository;
 
 import java.time.LocalDate;
 import java.time.Period;
@@ -38,7 +35,14 @@ public class EmployeService {
     }
 
     // Recupérer un employé qui existe dans la BD par son ID
-    public EmployeDTO getEmployeById(UUID id){
+    public Employe getEmployeById(UUID id){
+        Employe employe = employeRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Employé non retrouvé !"));
+        return employe;
+    }
+
+    // Recupérer un employé qui existe dans la BD par son ID
+    public EmployeDTO getEmployeDtoById(UUID id){
         Employe employe = employeRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Employé non trouvé !"));
         return mapToDTO(employe);

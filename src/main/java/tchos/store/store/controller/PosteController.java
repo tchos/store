@@ -1,18 +1,18 @@
-package controller;
+package tchos.store.store.controller;
 
-import dto.EmployeDTO;
+import tchos.store.store.dto.EmployeDTO;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import model.Poste;
-import model.TypePoste;
+import tchos.store.store.model.Poste;
+import tchos.store.store.model.TypePoste;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import service.EmployeService;
-import service.PosteService;
+import tchos.store.store.service.EmployeService;
+import tchos.store.store.service.PosteService;
 
 import java.util.List;
 import java.util.UUID;
@@ -33,7 +33,10 @@ public class PosteController {
         return "poste/listposte";
     }
 
-    // Créer un nouveau poste
+    /* Créer un nouveau poste: la création et
+    la creation d'une entité aura toujours 2 méthodes
+    (une avec GetMapping (pour le formulaire d'ajout et
+    l'autre avec PostMapping pour traiter les donnees saisies via le formulaire */
     @GetMapping("/new")
     public String addPoste(Model model) {
         model.addAttribute("poste", new Poste());
@@ -89,7 +92,11 @@ public class PosteController {
         return "poste/listeemployeposte";
     }
 
-    // Modifier les informations d'un poste
+
+    /* Modifier les informations d'un poste: la création et
+    la modification d'une entité aura toujours 2 méthodes
+    (une avec GetMapping (pour le formulaire de modification et
+    l'autre avec PostMapping pour traiter les donnees saisies via le formulaire */
     @GetMapping("/edit/{id}")
     public String edit(@PathVariable UUID id, Model model, RedirectAttributes ra)
     {

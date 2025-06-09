@@ -1,12 +1,8 @@
-package dto;
+package tchos.store.store.dto;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import model.TypePoste;
+import tchos.store.store.model.TypePoste;
 
-import java.time.LocalDate;
 import java.util.UUID;
 
 public record EmployeDTO(

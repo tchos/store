@@ -1,13 +1,10 @@
-package service;
+package tchos.store.store.service;
 
-import dto.EmployeDTO;
 import jakarta.persistence.EntityNotFoundException;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
-import model.Poste;
-import model.TypePoste;
+import tchos.store.store.model.Poste;
 import org.springframework.stereotype.Service;
-import repository.PosteRepository;
+import tchos.store.store.repository.PosteRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -23,7 +20,7 @@ public class PosteService {
     public Poste addPoste(Poste poste) {
         // Vérifie si le libellé existe déjà
         if (posteRepository.existsDistinctByLibellePoste(poste.getLibellePoste())) {
-            throw new IllegalArgumentException("Ce libellé existe déjà.");
+            throw new IllegalArgumentException("Ce poste existe déjà.");
         }
         return posteRepository.save(poste);
     }

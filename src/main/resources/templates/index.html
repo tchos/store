@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{base.html}"
->
-<head th:replace="~{base::page_head}">
-    <title layout:title="CREER POSTE"></title>
+      layout:decorate="~{base}">
+
+<!-- Appel correct du fragment avec paramètre -->
+<head th:replace="~{base::page_head(titrePage='ACCUEIL')}">
 </head>
 <body>
     <!-- Inclusion du header -->
@@ -15,7 +15,6 @@
     </div>
 
     <!-- Inclusion du footer -->
-    <div layout:fragment="footer" th:replace="layouts/_footer :: footer"></div>
-    <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+    <div th:replace="~{base::bas_de_page}"></div>
 </body>
 </html>

@@ -1,4 +1,4 @@
-package model;
+package tchos.store.store.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
@@ -45,5 +45,4 @@ public class Employe {
     @ManyToOne
     @JoinColumn(name="departement")
     private Departement departement;
-
 }
