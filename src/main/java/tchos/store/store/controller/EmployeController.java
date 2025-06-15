@@ -68,7 +68,8 @@ public class EmployeController {
             String msg = "L'employé " + employe.getNom() + " a été créé avec succès !";
             ra.addFlashAttribute("msg", msg);
 
-            // Après la création d'un nouveau poste on se redirige vers la page des listes des postes
+            /* Après la création d'un employe
+            on se redirige vers la page des listes des employes */
             return "redirect:/employe";
 
         } catch (IllegalArgumentException e)
@@ -123,8 +124,9 @@ public class EmployeController {
             String msg = "L'employé " + employe.getNom() + " a été modifié avec succès !";
             ra.addFlashAttribute("msg", msg);
 
-            // Après la création d'un nouveau poste on se redirige vers la page des listes des postes
-            return "redirect:/employes";
+            /* Après la modification d'un employe
+            on se redirige vers la page des listes des employes */
+            return "redirect:/employe";
 
         } catch (IllegalArgumentException e)
         {
@@ -143,8 +145,7 @@ public class EmployeController {
         String msg = "L'employé a été supprimé avec succès !";
         ra.addFlashAttribute("msg", msg);
 
-        // Redirection vers la page affichant les listes des departement
-        return "redirect:/employes";
+        // Redirection vers la page affichant les listes des employes
+        return "redirect:/employe";
     }
-
 }

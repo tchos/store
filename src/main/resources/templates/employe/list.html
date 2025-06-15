@@ -30,7 +30,7 @@
             <tr class="table-success">
               <th scope="col-1" class="text-center">N°</th>
               <th scope="col-4">Nom</th>
-              <th scope="col-2" class="text-end">Email</th>
+              <th scope="col-2" class="text-center">Email</th>
               <th scope="col-2" class="text-center">Ancienneté</th>
               <th scope="col-2" class="text-center">Salaire</th>
               <th scope="col-2" class="text-center">Poste occupé</th>
@@ -39,21 +39,23 @@
             </tr>
           </thead>
           <tbody>
-          <th:block scope="row" th:each="e,iter: ${employees}">
+          <th:block scope="row" th:each="e,iter: ${employes}">
             <tr>
               <td class="text-center" th:text="${iter.index + 1}"></td>
               <td class="text-start" th:text="${e.nom}"></td>
               <td class="text-start" th:text="${e.email}"></td>
-              <td class="text-end" th:text="${#numbers.formatInteger(e.anciennete, 3, 'WHITESPACE')} an(s)"></td>
-              <td class="text-end" th:text="${#numbers.formatInteger(e.salaire, 3, 'WHITESPACE')} FCFA"></td>
-              <td class="text-start" th:text="${e.poste}"></td>
-              <td class="text-start" th:text="${e.departement}"></td>
+              <!-- premiere methode de concatenation -->
+              <td class="text-end" th:text="${e.anciennete} + ' an(s)'"></td>
+              <!-- deuxieme methode de concatenation -->
+              <td class="text-end" th:text="|${#numbers.formatInteger(e.salaire, 3, 'WHITESPACE')} FCFA|"></td>
+              <td class="text-center" th:text="${e.poste}"></td>
+              <td class="text-center" th:text="${e.departement}"></td>
               <td class="text-center">
-                <a class="btn btn-warning btn-sm" th:href="@{/employe/{id}(id=${e.id})}"
+                <a class="btn btn-warning btn-sm" th:href="@{/employe/edit/{id}(id=${e.id})}"
                    title="Modifier l'employé">
                   <i class="fa-solid fa-pen-nib"></i>
                 </a>
-                <a class="btn btn-danger btn-sm" th:href="@{/employe/delete/{id}(id=${p.id})}" data-bs-toggle="modal"
+                <a class="btn btn-danger btn-sm" th:href="@{/employe/delete/{id}(id=${e.id})}" data-bs-toggle="modal"
                    th:data-bs-target="'#modal' + ${e.id}">
                   <i class="fa-solid fa-trash"></i>
                 </a>

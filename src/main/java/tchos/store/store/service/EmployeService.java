@@ -22,7 +22,13 @@ public class EmployeService {
     private final PosteRepository posteRepository;
 
     // Ajouter un nouvel employe dans la BD
-    public Employe addEmploye(Employe employe){
+    public Employe addEmploye(Employe employe)
+    {
+        if (employeRepository.existsDistinctByNom(employe.getNom())
+                & employeRepository.existsDistinctByDateEmbauche(employe.getDateEmbauche()))
+        {
+            throw new IllegalArgumentException("Cet employé existe déjà au sein de l'entreprise !");
+        }
         return employeRepository.save(employe);
     }
 

@@ -11,7 +11,7 @@ import java.util.UUID;
 @Table(name = "employes")
 @Data
 @Builder
-@ToString
+@ToString(exclude = {"poste", "departement"})
 @AllArgsConstructor
 @NoArgsConstructor
 public class Employe {
@@ -34,8 +34,8 @@ public class Employe {
     private LocalDate dateEmbauche;
 
     @Column(nullable = false)
-    @Min(value = 42000, message = "Le salaire doit être supérieur ou égale au SMIG")
-    @Max(value = 1000000, message = "Le salaire doit être inférieur ou égale à 1 000 000")
+    @Min(value = 42000, message = "{Min.employe.salaire}")
+    @Max(value = 1000000, message = "{Max.employe.salaire}")
     private Integer salaire;
 
     @ManyToOne
